@@ -77,10 +77,10 @@ python test.py --model efficientnet_exx --model-state-file (path to best model.p
 ```
 python ./torchscope-master/count.py
 ```
+*Specify the "mul_factor" in the line 83 of "scope.py" to determine whether multiplication is counted as 1/2 or 1 operation:
+madds = compute_madd(module, input[0], output, mul_factor = 0.5)
 
 #### Count parameters and operations
-*Change the "mul_factor" in the line 83 of "scope.py" to decide how to count multiplications:
-madds = compute_madd(module, input[0], output, mul_factor = 0.5)
 ##### For the EfficientNet-ex model:
 * Count multiplication operations as 1/2 operation:
 
