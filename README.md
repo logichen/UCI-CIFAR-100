@@ -10,8 +10,7 @@ and [Jack xin] jack.xin@uci.edu
 ### Introduction
 This is a pytorch training script for light weight network on CIFAR-100. We aim to participate in the MicroNet Chanllenge hosted at NeurIPS 2019. Our solution is based on label refinery (https://arxiv.org/abs/1805.02641), EfficientNet (https://arxiv.org/pdf/1905.11946.pdf) and additive margin softmax loss (https://arxiv.org/pdf/1801.05599.pdf).
 
-We propose two models, EfficientNet-ex and EfficientNet-exx, both adapted from EfficientNet. We modified the EfficientNet architecture to meet the input size of 32x32 and replaced the cross-entropy with additive margin softmax loss with s=5.0 and m=0.0.
-We also enlarged our dataset with different transformations of the original CIFAR-100, without usage of any extra data.
+We propose two models, EfficientNet-ex and EfficientNet-exx, both adapted from EfficientNet. We modified the EfficientNet architecture to meet the input size of 32x32 and replaced the cross-entropy with additive margin softmax loss with s=5.0 and m=0.0. We also enlarged our dataset with different transformations of the original CIFAR-100, without usage of any extra data.
 
 
 ### Usage
@@ -26,10 +25,10 @@ pip3 install -r requirements.txt
 Before running the code, make sure the data has been downloaded.
 
 Fisrt, train EfficientNet-B3 with default parameters and save the model with the highest test accuracy. Usually the best model can achieve test accuracy above 79%.
-Next, retrain the EfficientNet-B3 with the refined labels of the previous best model. After the second training of EfficientNet-B3, it can achieve an accuracy above 80%.
+Next, retrain the EfficientNet-B3 with the refined labels of the previous best model. After the second training of EfficientNet-B3, it can achieve accuracy above 80%.
 Then train EfficientNet-B0 with the refined labels of EfficientNet-B3, and finally train EfficientNet-ex with the refined labels of EfficientNet-B0.
 
-We also test on a smaller model named EfficientNet-exx with the refined labels of EfficientNet-B0, which is slightly smaller than model EfficientNet-ex. We trained it several times and the best test accuracy was above 80% at some training.
+We also test on a smaller model named EfficientNet-exx with the refined labels of EfficientNet-B0, which is slightly smaller than model EfficientNet-ex. We trained it several times and the test accuracy could exceed 80% at some training.
 
 Some basic settings: 
 batch size: 128, number of epochs: 70, learning rate: (1-25: 0.07, 26-50: 0.007, 51-65: 0.0007, 66-70: 0.00007), GPU: two GTX 1080 Ti GPUs
