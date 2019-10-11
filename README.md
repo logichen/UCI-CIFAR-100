@@ -29,6 +29,8 @@ Before you run the code, you should make sure you have downloaded the data.
 Fisrt, you need to train EfficientNet-B3 with default parameters. Usually the best result can achieve an accuracy of over 79%. Choose the best model in test accuracy.
 Then you can retrain the EfficientNet-B3 with the refined labels of the previous best model. After the second training of EfficientNet-B3, it can achieve 
 an accuracy of over 80%. Now you can train EfficientNet-B0 with the refined labels of EfficientNet-B3, and finally train EfficientNet-ex with the refined labels of EfficientNet-B0. 
+We also test a smaller model named EfficientNet-exx with the refined labels of EfficientNet-B0. It is slightly smaller than model EfficientNet-ex. We test it several times and the best
+test accuracy is higher than 80%, but not all the test accuracies are higher than 80%.
 
 Some basic settings: 
 batch size: 128, number of epochs: 70, learning rate: (1-25: 0.07, 26-50: 0.007, 51-65: 0.0007, 66-70: 0.00007), GPU: two GTX 1080 Ti GPUs
@@ -45,9 +47,13 @@ python train.py --model efficientnet_b3 --label-refinery-model efficientnet_b3 -
 ```
 python train.py --model efficientnet_b0 --label-refinery-model efficientnet_b3 --label-refinery-state-file (path to best model_state.pytar) --s (default 5.0) --coslinear True
 ```
-4. Train EfficientNet-ex with refined labels of EfficientNet-B0:
+4. a). Train EfficientNet-ex with refined labels of EfficientNet-B0:
 ```
 python train.py --model efficientnet_ex --label-refinery-model efficientnet_b0 --label-refinery-state-file (path to best model_state.pytar) --s (default 5.0) --coslinear True
+```
+4. b). Train EfficientNet-exx with refined labels of EfficientNet-B0:
+```
+python train.py --model efficientnet_exx --label-refinery-model efficientnet_b0 --label-refinery-state-file (path to best model_state.pytar) --s (default 5.0) --coslinear True
 ```
 
 #### Our trained models
@@ -55,13 +61,18 @@ In the "checkpoints" file, we provide our trained models for each step.
 1. "model_state_b3.pytar" is the best model for step 1. You can use it as the label-refinery model to train efficientnet_B3 in step 2. 
 2. "model_state_b3_rfn.pytar" is the best model for step 2. You can use it as the label-refinery model to train efficientnet_B0 in step 3. 
 3. "model_state_b0.pytar" is the best model for step 3. You can use it as the label-refinery model to train efficientnet_ex in step 4. 
-4. "model_state_ex.pytar" is the best model for the last step, which achieves a test accuracy of 80.12%. 
+4. a). "model_state_ex.pytar" is the best model for the step 4.a, which achieves a test accuracy of 80.12%. 
+4. b). "model_state_exx.pytar" is the best model for the step 4.b, which achieves a test accuracy of 80.14%. 
 
 
 #### Test models
 To test a trained EfficientNet-ex model:
 ```
 python test.py --model efficientnet_ex --model-state-file (path to best model.pytar) --data_dir (path to you data)
+```
+And to test a trained EfficientNet-exx model:
+```
+python test.py --model efficientnet_exx --model-state-file (path to best model.pytar) --data_dir (path to you data)
 ```
 
 #### Print number of operations and parameters
@@ -70,7 +81,7 @@ python ./torchscope-master/count.py
 ```
 
 #### Count parameters and operations
-For the EfficientNet-ex model:
+##### For the EfficientNet-ex model:
 Count multiplication operations as 1/2 operation
 
 Total params: 2,793,064
@@ -85,7 +96,6 @@ Params size (MB): 2.66
 Estimated Total Size (MB): 45.28
 FLOPs size (GB): 0.25
 Madds size (GB): 0.38
-
 
 Count multiplication as 1 operation
 
@@ -103,11 +113,44 @@ FLOPs size (GB): 0.25
 Madds size (GB): 0.51
 
 
+##### For the EfficientNet-exx model:
+Count multiplication operations as 1/2 operation
+
+Total params: 2,418,650
+Trainable params: 2,398,650
+Non-trainable params: 20,000
+Total FLOPs: 232,355,234
+Total Madds: 353,361,693.0
+
+Input size (MB): 0.01
+Forward/backward pass size (MB): 40.65
+Params size (MB): 2.31
+Estimated Total Size (MB): 42.97
+FLOPs size (GB): 0.23
+Madds size (GB): 0.35
+
+Count multiplication as 1 operation
+
+Total params: 2,418,650
+Trainable params: 2,398,650
+Non-trainable params: 20,000
+Total FLOPs: 232,355,234
+Total Madds: 473,373,028
+
+Input size (MB): 0.01
+Forward/backward pass size (MB): 40.65
+Params size (MB): 2.31
+Estimated Total Size (MB): 42.97
+FLOPs size (GB): 0.23
+Madds size (GB): 0.47
+
+
 *Change the "mul_factor" in the line 83 of "scope.py" to decide how to count multiplications:
 madds = compute_madd(module, input[0], output, mul_factor = 0.5)
 
 
-#### Score: 0.074762
+#### Score
+##### EfficientNet-ex: 0.074762
 EfficientNet-ex with Angleloss and Label Refinery:
 Accuracy: 80.12% (efficientnet_ex.pytar)
 Parameter number: 2,793,064
@@ -124,6 +167,25 @@ Count all parameters as 16-bit and 1 multiplication operation as 1/2 operation:
 
 Count all parameters as 16-bit and 1 multiplication operation as 1 operation:
 2,793,064/36.5M + 512,835,116/10.49B = 0.12541
+
+
+##### EfficientNet-exx: 0.066818
+EfficientNet-exx with Angleloss and Label Refinery:
+Accuracy: 80.14% (efficientnet_exx.pytar)
+Parameter number: 2,418,650
+Total operations: 353,361,693.0
+
+WideResNet-28-10
+Parameter number: 36.5M
+Total operations: 10.49B
+
+Scoring:
+Since we do not use quantization method.
+Count all parameters as 16-bit and 1 multiplication operation as 1/2 operation:
+(0.5 x 2,418,650)/36.5M + 353,361,693.0/10.49B = 0.066818
+
+Count all parameters as 16-bit and 1 multiplication operation as 1 operation:
+2,418,650/36.5M + 473,373,028/10.49B = 0.11139
 
 #### License
 By downloading this software you acknowledge that you read and agreed all the
