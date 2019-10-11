@@ -12,7 +12,7 @@ This is a pytorch training script for light weight network on
 CIFAR-100. We aim to attend the MicroNet Chanllenge hosted at NeurIPS 2019. Our codes are modified from label refinery:
 (https://arxiv.org/abs/1805.02641), EfficientNet: (https://arxiv.org/pdf/1905.11946.pdf) and additive margin softmax loss: (https://arxiv.org/pdf/1801.05599.pdf).
 
-We propose two models, EfficientNet-ex and EfficientNet-exx, both based on EfficientNet. We modified the EfficientNet architecture to meet the input size of 32x32 and changed the cross-entropy to additive margin softmax loss with s=5.0 and m=0.0.
+We propose two models, EfficientNet-ex and EfficientNet-exx, both based on EfficientNet. We modified the EfficientNet architecture to meet the input size of 32x32 and replaced the cross-entropy with additive margin softmax loss with s=5.0 and m=0.0.
 We also enlarged our dataset with different transformations of the original CIFAR-100, without usage of any extra data.
 
 
