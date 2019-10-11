@@ -80,7 +80,7 @@ python ./torchscope-master/count.py
 
 #### Count parameters and operations
 ##### For the EfficientNet-ex model:
-Count multiplication operations as 1/2 operation:
+* Count multiplication operations as 1/2 operation:
 
 Total params: 2,793,064;
 Trainable params: 2,773,064;
@@ -95,7 +95,7 @@ Estimated Total Size (MB): 45.28;
 FLOPs size (GB): 0.25;
 Madds size (GB): 0.38.
 
-Count multiplication as 1 operation:
+* Count multiplication as 1 operation:
 
 Total params: 2,793,064;
 Trainable params: 2,773,064;
@@ -112,7 +112,7 @@ Madds size (GB): 0.51.
 
 
 ##### For the EfficientNet-exx model:
-Count multiplication operations as 1/2 operation:
+* Count multiplication operations as 1/2 operation:
 
 Total params: 2,418,650;
 Trainable params: 2,398,650;
@@ -127,7 +127,7 @@ Estimated Total Size (MB): 42.97;
 FLOPs size (GB): 0.23;
 Madds size (GB): 0.35.
 
-Count multiplication as 1 operation:
+* Count multiplication as 1 operation:
 
 Total params: 2,418,650;
 Trainable params: 2,398,650;
