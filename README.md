@@ -7,13 +7,13 @@ By [Biao Yang] biaoy1@uci.edu,
 and [Jack xin] jack.xin@uci.edu
 
 
-### Introduction
+### 1. Introduction
 This is a pytorch training script for light weight network on CIFAR-100. We aim to participate in the MicroNet Chanllenge hosted at NeurIPS 2019. Our solution is based on label refinery (https://arxiv.org/abs/1805.02641), EfficientNet (https://arxiv.org/pdf/1905.11946.pdf) and additive margin softmax loss (https://arxiv.org/pdf/1801.05599.pdf).
 
 We propose two models, EfficientNet-ex and EfficientNet-exx, both adapted from EfficientNet. We modified the EfficientNet architecture to meet the input size of 32x32 and replaced the cross-entropy with additive margin softmax loss with s=5.0 and m=0.0. We also enlarged our dataset with different transformations of the original CIFAR-100, without usage of any extra data.
 
 
-### Usage
+### 2. Usage
 #### Prerequisite
 Python3.5+ is required. Other requirements can be found in [requirements.txt](requirements.txt).
 To install the packages:
@@ -80,7 +80,7 @@ python ./torchscope-master/count.py
 *Specify the "mul_factor" in the line 83 of "scope.py" to determine whether multiplication is counted as 1/2 or 1 operation:
 madds = compute_madd(module, input[0], output, mul_factor = 0.5)
 
-### Parameter and Operation Details
+### 3. Parameter and Operation Details
 #### EfficientNet-ex model:
 * Count multiplication operations as 1/2 operation.
 
@@ -145,7 +145,7 @@ FLOPs size (GB): 0.23;
 Madds size (GB): 0.47.
 
 
-### Score
+### 4. Score
 #### EfficientNet-ex: 0.074762
 EfficientNet-ex with Angleloss and Label Refinery:
 Accuracy: 80.12% (efficientnet_ex.pytar)
@@ -183,7 +183,7 @@ Since no quantization is used, we count all parameters as 16-bit and 1 multiplic
 *Count all parameters as 16-bit and 1 multiplication operation as 1 operation:
 2,418,650/36.5M + 473,373,028/10.49B = 0.11139
 
-### License
+### 5. License
 By downloading this software you acknowledge that you read and agreed all the
 terms in the `LICENSE` file.
 
