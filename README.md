@@ -80,8 +80,8 @@ python ./torchscope-master/count.py
 *Specify the "mul_factor" in the line 83 of "scope.py" to determine whether multiplication is counted as 1/2 or 1 operation:
 madds = compute_madd(module, input[0], output, mul_factor = 0.5)
 
-#### Count parameters and operations
-##### For the EfficientNet-ex model:
+### Parameters and Operations
+#### For the EfficientNet-ex model:
 * Count multiplication operations as 1/2 operation.
 
 Total params: 2,793,064;
@@ -113,7 +113,7 @@ FLOPs size (GB): 0.25;
 Madds size (GB): 0.51.
 
 
-##### For the EfficientNet-exx model:
+#### For the EfficientNet-exx model:
 * Count multiplication operations as 1/2 operation.
 
 Total params: 2,418,650;
@@ -145,8 +145,8 @@ FLOPs size (GB): 0.23;
 Madds size (GB): 0.47.
 
 
-#### Score
-##### EfficientNet-ex: 0.074762
+### Score
+#### EfficientNet-ex: 0.074762
 EfficientNet-ex with Angleloss and Label Refinery:
 Accuracy: 80.12% (efficientnet_ex.pytar)
 Parameter number: 2,793,064
@@ -165,7 +165,7 @@ Since no quantization is used, we count all parameters as 16-bit and 1 multiplic
 2,793,064/36.5M + 512,835,116/10.49B = 0.12541
 
 
-##### EfficientNet-exx: 0.066818
+#### EfficientNet-exx: 0.066818
 EfficientNet-exx with Angleloss and Label Refinery:
 Accuracy: 80.14% (efficientnet_exx.pytar)
 Parameter number: 2,418,650
@@ -183,7 +183,7 @@ Since no quantization is used, we count all parameters as 16-bit and 1 multiplic
 *Count all parameters as 16-bit and 1 multiplication operation as 1 operation:
 2,418,650/36.5M + 473,373,028/10.49B = 0.11139
 
-#### License
+### License
 By downloading this software you acknowledge that you read and agreed all the
 terms in the `LICENSE` file.
 
