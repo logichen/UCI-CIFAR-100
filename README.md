@@ -24,11 +24,11 @@ pip3 install -r requirements.txt
 #### Train models
 Before running the code, make sure the data has been downloaded.
 
-Fisrt, train EfficientNet-B3 with default parameters and save the model with the highest test accuracy. Usually the best model can achieve test accuracy above 79%.
-Next, retrain the EfficientNet-B3 with the refined labels of the previous best model. After the second training of EfficientNet-B3, it can achieve accuracy above 80%.
+Fisrt, train EfficientNet-B3 with default parameters and save the model with the highest test accuracy. Usually the model can achieve test accuracy above 79%.
+Next, retrain the EfficientNet-B3 with the refined labels of the saved model. After the second training of EfficientNet-B3, it can achieve accuracy above 80%.
 Then train EfficientNet-B0 with the refined labels of EfficientNet-B3, and finally train EfficientNet-ex with the refined labels of EfficientNet-B0.
 
-We also test on a smaller model named EfficientNet-exx with the refined labels of EfficientNet-B0, which is slightly smaller than model EfficientNet-ex. We trained it several times and the test accuracy could exceed 80% at some training.
+We also test on a even smaller network named EfficientNet-exx with the refined labels of EfficientNet-B0. We trained several EfficientNet-exx models and the best model achieved test accuracy above 80%.
 
 Some basic settings: 
 batch size: 128, number of epochs: 70, learning rate: (1-25: 0.07, 26-50: 0.007, 51-65: 0.0007, 66-70: 0.00007), GPU: two GTX 1080 Ti GPUs
