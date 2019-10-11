@@ -1,4 +1,4 @@
-### MicroNet-CIFAR100: *EfficiennNet-B0 with Angleloss and Label Refinery*
+### MicroNet-CIFAR100: *EfficientNet-ex(x) with Angleloss and Label Refinery*
 By [Biao Yang] biaoy1@uci.edu,
 [Fanghui Xue] fanghuix@uci.edu,
 [Jiancheng Lyu] jianlyu@qti.qualcomm.com,
