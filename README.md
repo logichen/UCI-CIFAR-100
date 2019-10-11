@@ -31,7 +31,7 @@ Fisrt, train EfficientNet-B3 with default parameters and save the model with the
 Next, retrain the EfficientNet-B3 with the refined labels of the previous best model. After the second training of EfficientNet-B3, it can achieve an accuracy above 80%.
 Then train EfficientNet-B0 with the refined labels of EfficientNet-B3, and finally train EfficientNet-ex with the refined labels of EfficientNet-B0.
 
-We also test a smaller model named EfficientNet-exx with the refined labels of EfficientNet-B0. It is slightly smaller than model EfficientNet-ex. We test it several times and the best test accuracy can be but not always above 80%.
+We also test a smaller model named EfficientNet-exx with the refined labels of EfficientNet-B0, which is slightly smaller than model EfficientNet-ex. We test it several times and the best test accuracy can be but not always above 80%.
 
 Some basic settings: 
 batch size: 128, number of epochs: 70, learning rate: (1-25: 0.07, 26-50: 0.007, 51-65: 0.0007, 66-70: 0.00007), GPU: two GTX 1080 Ti GPUs
