@@ -1,0 +1,17 @@
+INFO 2019-10-11 13:08:10,713:	 Arguments parsed.
+{'batch_size': 128,
+ 'coslinear': True,
+ 'data_dir': '/home/macho/efficient2/data/',
+ 'gpus': [0, 2],
+ 'label_refinery_model': None,
+ 'label_refinery_state_file': None,
+ 'lr_regime': None,
+ 'model': 'efficientnet_b3',
+ 'model_state_file': None,
+ 'momentum': 0.9,
+ 'num_workers': 4,
+ 's': 5.0,
+ 'save': 'checkpoints',
+ 'weight_decay': 0.0001}
+INFO 2019-10-11 13:08:19,717:	 Epoch: [1][1/1172]	Time 3.84 (3.84)   Data 0.24 (0.24)   Loss 4.661 {4.661, 4.661}    Top-1 0.00 {0.00, 0.00}    Top-5 4.69 {4.69, 4.69}    LR 0.07000
+INFO 2019-10-11 13:08:41,923:	 Epoch: [1][51/1172]	Time 0.43 (0.51)   Data 0.00 (0.01)   Loss 4.566 {4.638, 4.638}    Top-1 1.56 {1.29, 1.29}    Top-5 4.69 {6.27, 6.27}    LR 0.07000
