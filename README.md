@@ -16,8 +16,8 @@ We also enlarged our dataset with different transformations of the original CIFA
 
 ### Usage
 #### Prerequisite
-You need Python3.5+ to implement this code. Other requirements can be found in [requirements.txt](requirements.txt).
-You may install the packages by:
+Python3.5+ is required. Other requirements can be found in [requirements.txt](requirements.txt).
+To install the packages:
 ```
 pip3 install -r requirements.txt
 ```
