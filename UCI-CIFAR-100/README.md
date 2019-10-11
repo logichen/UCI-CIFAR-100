@@ -28,7 +28,7 @@ pip3 install -r requirements.txt
 Before you run the code, you should make sure you have downloaded the data. 
 Fisrt, you need to train EfficientNet-B3 with default parameters. Usually the best result can achieve an accuracy of over 79%. Choose the best model.
 Then you can retrain the EfficientNet-B3 with the refined labels of the previous best model. After the second training of EfficientNet-B3, it can achieve 
-an accuracy of over 80%. Now you can train EfficientNet-ex with the refined labels of EfficientNet-B3. 
+an accuracy of over 80%. Now you can train EfficientNet-B0 with the refined labels of EfficientNet-B3, and finally train EfficientNet-ex with the refined labels of EfficientNet-B0. 
 
 1. Train EfficientNet-B3:
 ```
@@ -48,7 +48,7 @@ python train.py --model efficientnet_ex --label-refinery-model efficientnet_b0 -
 ```
 
 #### Test models
-To test a trained EfficientNet-B0 model:
+To test a trained EfficientNet-ex model:
 ```
 python test.py --model efficientnet_ex --model-state-file (path to best model.pytar) --data_dir (path to you data)
 ```
@@ -118,4 +118,4 @@ Count all parameters as 16-bit and 1 multiplication operation as 1 operation:
 By downloading this software you acknowledge that you read and agreed all the
 terms in the `LICENSE` file.
 
-Sep 29th, 2019
+Oct 10th, 2019
