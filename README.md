@@ -31,7 +31,7 @@ Then train EfficientNet-B0 with the refined labels of EfficientNet-B3, and final
 We also test on a even smaller network named EfficientNet-exx with the refined labels of EfficientNet-B0. We trained several EfficientNet-exx models and the best model achieved test accuracy above 80%.
 
 Some basic settings: 
-batch size: 128, number of epochs: 70, learning rate: (1-25: 0.07, 26-50: 0.007, 51-65: 0.0007, 66-70: 0.00007), GPU: two GTX 1080 Ti GPUs
+batch size: 128, number of epochs: 70, learning rate: (1-25: 0.07, 26-50: 0.007, 51-65: 0.0007, 66-70: 0.00007), GPU: two GTX 1080 Ti GPUs.
 
 1. Train EfficientNet-B3:
 ```
