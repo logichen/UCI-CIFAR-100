@@ -80,7 +80,7 @@ python ./torchscope-master/count.py
 *Specify the "mul_factor" in the line 83 of "scope.py" to determine whether multiplication is counted as 1/2 or 1 operation:
 madds = compute_madd(module, input[0], output, mul_factor = 0.5)
 
-### Parameters and Operations
+### Parameter and Operation Details
 #### EfficientNet-ex model:
 * Count multiplication operations as 1/2 operation.
 
