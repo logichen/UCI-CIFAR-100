@@ -79,6 +79,8 @@ python ./torchscope-master/count.py
 ```
 
 #### Count parameters and operations
+*Change the "mul_factor" in the line 83 of "scope.py" to decide how to count multiplications:
+madds = compute_madd(module, input[0], output, mul_factor = 0.5)
 ##### For the EfficientNet-ex model:
 * Count multiplication operations as 1/2 operation:
 
@@ -141,10 +143,6 @@ Params size (MB): 2.31;
 Estimated Total Size (MB): 42.97;
 FLOPs size (GB): 0.23;
 Madds size (GB): 0.47.
-
-
-*Change the "mul_factor" in the line 83 of "scope.py" to decide how to count multiplications:
-madds = compute_madd(module, input[0], output, mul_factor = 0.5)
 
 
 #### Score
