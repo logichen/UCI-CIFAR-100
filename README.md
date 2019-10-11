@@ -59,9 +59,9 @@ python train.py --model efficientnet_exx --label-refinery-model efficientnet_b0 
 
 #### Our trained models
 In the "checkpoints" file, we provide our trained models for each step. 
-1. "model_state_b3.pytar" is the best model for step 1. You can use it as the label-refinery model to train efficientnet_B3 in step 2. 
-2. "model_state_b3_rfn.pytar" is the best model for step 2. You can use it as the label-refinery model to train efficientnet_B0 in step 3. 
-3. "model_state_b0.pytar" is the best model for step 3. You can use it as the label-refinery model to train efficientnet_ex in step 4. 
+1. "model_state_b3.pytar" is the best model for step 1, used as the label-refinery model to train efficientnet_B3 in step 2. 
+2. "model_state_b3_rfn.pytar" is the best model for step 2, used as the label-refinery model to train efficientnet_B0 in step 3. 
+3. "model_state_b0.pytar" is the best model for step 3, used as the label-refinery model to train efficientnet_ex in step 4. 
 4. "model_state_ex.pytar" is the best model for the step 4.a), which achieves a test accuracy of 80.12%. 
 4. "model_state_exx.pytar" is the best model for the step 4.b), which achieves a test accuracy of 80.14%. 
 
