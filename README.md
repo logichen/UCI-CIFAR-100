@@ -83,67 +83,67 @@ python ./torchscope-master/count.py
 
 #### Count parameters and operations
 ##### For the EfficientNet-ex model:
-Count multiplication operations as 1/2 operation
+Count multiplication operations as 1/2 operation:
 
-Total params: 2,793,064
-Trainable params: 2,773,064
-Non-trainable params: 20,000
-Total FLOPs: 251,891,224
-Total Madds: 382,885,052.0
+Total params: 2,793,064;
+Trainable params: 2,773,064;
+Non-trainable params: 20,000;
+Total FLOPs: 251,891,224;
+Total Madds: 382,885,052.0.
 
-Input size (MB): 0.01
-Forward/backward pass size (MB): 42.61
-Params size (MB): 2.66
-Estimated Total Size (MB): 45.28
-FLOPs size (GB): 0.25
-Madds size (GB): 0.38
+Input size (MB): 0.01;
+Forward/backward pass size (MB): 42.61;
+Params size (MB): 2.66;
+Estimated Total Size (MB): 45.28;
+FLOPs size (GB): 0.25;
+Madds size (GB): 0.38.
 
-Count multiplication as 1 operation
+Count multiplication as 1 operation:
 
-Total params: 2,793,064
-Trainable params: 2,773,064
-Non-trainable params: 20,000
-Total FLOPs: 251,891,224
-Total Madds: 512,835,116
+Total params: 2,793,064;
+Trainable params: 2,773,064;
+Non-trainable params: 20,000;
+Total FLOPs: 251,891,224;
+Total Madds: 512,835,116.
 
-Input size (MB): 0.01
-Forward/backward pass size (MB): 42.61
-Params size (MB): 2.66
-Estimated Total Size (MB): 45.28
-FLOPs size (GB): 0.25
-Madds size (GB): 0.51
+Input size (MB): 0.01;
+Forward/backward pass size (MB): 42.61;
+Params size (MB): 2.66;
+Estimated Total Size (MB): 45.28;
+FLOPs size (GB): 0.25;
+Madds size (GB): 0.51.
 
 
 ##### For the EfficientNet-exx model:
-Count multiplication operations as 1/2 operation
+Count multiplication operations as 1/2 operation:
 
-Total params: 2,418,650
-Trainable params: 2,398,650
-Non-trainable params: 20,000
-Total FLOPs: 232,355,234
-Total Madds: 353,361,693.0
+Total params: 2,418,650;
+Trainable params: 2,398,650;
+Non-trainable params: 20,000;
+Total FLOPs: 232,355,234;
+Total Madds: 353,361,693.0.
 
-Input size (MB): 0.01
-Forward/backward pass size (MB): 40.65
-Params size (MB): 2.31
-Estimated Total Size (MB): 42.97
-FLOPs size (GB): 0.23
-Madds size (GB): 0.35
+Input size (MB): 0.01;
+Forward/backward pass size (MB): 40.65;
+Params size (MB): 2.31;
+Estimated Total Size (MB): 42.97;
+FLOPs size (GB): 0.23;
+Madds size (GB): 0.35.
 
-Count multiplication as 1 operation
+Count multiplication as 1 operation:
 
-Total params: 2,418,650
-Trainable params: 2,398,650
-Non-trainable params: 20,000
-Total FLOPs: 232,355,234
-Total Madds: 473,373,028
+Total params: 2,418,650;
+Trainable params: 2,398,650;
+Non-trainable params: 20,000;
+Total FLOPs: 232,355,234;
+Total Madds: 473,373,028.
 
-Input size (MB): 0.01
-Forward/backward pass size (MB): 40.65
-Params size (MB): 2.31
-Estimated Total Size (MB): 42.97
-FLOPs size (GB): 0.23
-Madds size (GB): 0.47
+Input size (MB): 0.01;
+Forward/backward pass size (MB): 40.65;
+Params size (MB): 2.31;
+Estimated Total Size (MB): 42.97;
+FLOPs size (GB): 0.23;
+Madds size (GB): 0.47.
 
 
 *Change the "mul_factor" in the line 83 of "scope.py" to decide how to count multiplications:
@@ -192,4 +192,4 @@ Count all parameters as 16-bit and 1 multiplication operation as 1 operation:
 By downloading this software you acknowledge that you read and agreed all the
 terms in the `LICENSE` file.
 
-Oct 10th, 2019
+Oct 11th, 2019
