@@ -157,8 +157,7 @@ Parameter number: 36.5M
 Total operations: 10.49B
 
 Scoring:
-Since we do not use quantization method.
-Count all parameters as 16-bit and 1 multiplication operation as 1/2 operation:
+Since no quantization is used, we count all parameters as 16-bit and 1 multiplication operation as 1/2 operation:
 (0.5 x 2,793,064)/36.5M + 382,885,052.0/10.49B = 0.074762
 
 Count all parameters as 16-bit and 1 multiplication operation as 1 operation:
@@ -176,8 +175,7 @@ Parameter number: 36.5M
 Total operations: 10.49B
 
 Scoring:
-Since we do not use quantization method.
-Count all parameters as 16-bit and 1 multiplication operation as 1/2 operation:
+Since no quantization is used, we count all parameters as 16-bit and 1 multiplication operation as 1/2 operation:
 (0.5 x 2,418,650)/36.5M + 353,361,693.0/10.49B = 0.066818
 
 Count all parameters as 16-bit and 1 multiplication operation as 1 operation:
