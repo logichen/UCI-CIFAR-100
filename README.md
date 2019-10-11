@@ -26,7 +26,7 @@ pip3 install -r requirements.txt
 
 #### Train models
 Before you run the code, you should make sure you have downloaded the data. 
-Fisrt, you need to train EfficientNet-B3 with default parameters. Usually the best result can achieve an accuracy of over 79%. Choose the best model.
+Fisrt, you need to train EfficientNet-B3 with default parameters. Usually the best result can achieve an accuracy of over 79%. Choose the best model in test accuracy.
 Then you can retrain the EfficientNet-B3 with the refined labels of the previous best model. After the second training of EfficientNet-B3, it can achieve 
 an accuracy of over 80%. Now you can train EfficientNet-B0 with the refined labels of EfficientNet-B3, and finally train EfficientNet-ex with the refined labels of EfficientNet-B0. 
 
@@ -47,20 +47,27 @@ python train.py --model efficientnet_b0 --label-refinery-model efficientnet_b3 -
 python train.py --model efficientnet_ex --label-refinery-model efficientnet_b0 --label-refinery-state-file (path to best model_state.pytar) --s (default 5.0) --coslinear True
 ```
 
+#### Our trained models
+In the "checkpoints" file, we provide our trained models for each step. 
+1. "model_state_b3.pytar" is the best model for step 1. You can use it as the label-refinery model to train efficientnet_B3 in step 2. 
+2. "model_state_b3_rfn.pytar" is the best model for step 2. You can use it as the label-refinery model to train efficientnet_B0 in step 3. 
+3. "model_state_b0.pytar" is the best model for step 3. You can use it as the label-refinery model to train efficientnet_ex in step 4. 
+4. "model_state_ex.pytar" is the best model for the last step, which achieves a test accuracy of 80.12%. 
+
 #### Test models
 To test a trained EfficientNet-ex model:
 ```
 python test.py --model efficientnet_ex --model-state-file (path to best model.pytar) --data_dir (path to you data)
 ```
 
-
 #### Print number of operations and parameters
 ```
 python ./torchscope-master/count.py
 ```
 
-#### Running result:
-Counting multiplication operations as 1/2 operation
+#### Count parameters and operations
+For the EfficientNet-ex model:
+Count multiplication operations as 1/2 operation
 
 Total params: 2,793,064
 Trainable params: 2,773,064
@@ -76,7 +83,7 @@ FLOPs size (GB): 0.25
 Madds size (GB): 0.38
 
 
-Counting multiplication as 1 operation
+Count multiplication as 1 operation
 
 Total params: 2,793,064
 Trainable params: 2,773,064
@@ -96,9 +103,9 @@ Madds size (GB): 0.51
 madds = compute_madd(module, input[0], output, mul_factor = 0.5)
 
 
-#### Scoring: 0.074762
-EfficiennNet-ex with Angleloss and Label Refinery:
-Accuracy: 80.12% (efficientnet_b0.pytar)
+#### Score: 0.074762
+EfficientNet-ex with Angleloss and Label Refinery:
+Accuracy: 80.12% (efficientnet_ex.pytar)
 Parameter number: 2,793,064
 Total operations: 382,885,052.0
 
