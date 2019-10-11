@@ -30,6 +30,9 @@ Fisrt, you need to train EfficientNet-B3 with default parameters. Usually the be
 Then you can retrain the EfficientNet-B3 with the refined labels of the previous best model. After the second training of EfficientNet-B3, it can achieve 
 an accuracy of over 80%. Now you can train EfficientNet-B0 with the refined labels of EfficientNet-B3, and finally train EfficientNet-ex with the refined labels of EfficientNet-B0. 
 
+Some basic settings: 
+batch size: 128, number of epochs: 70, learning rate: (1-25: 0.07, 26-50: 0.007, 51-65: 0.0007, 66-70: 0.00007), GPU: two GTX 1080 Ti GPUs
+
 1. Train EfficientNet-B3:
 ```
 python train.py --model efficientnet_b3 --data_dir (path to you data) --s (default 5.0) --coslinear True
@@ -53,6 +56,7 @@ In the "checkpoints" file, we provide our trained models for each step.
 2. "model_state_b3_rfn.pytar" is the best model for step 2. You can use it as the label-refinery model to train efficientnet_B0 in step 3. 
 3. "model_state_b0.pytar" is the best model for step 3. You can use it as the label-refinery model to train efficientnet_ex in step 4. 
 4. "model_state_ex.pytar" is the best model for the last step, which achieves a test accuracy of 80.12%. 
+
 
 #### Test models
 To test a trained EfficientNet-ex model:
