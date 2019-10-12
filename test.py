@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Script to test a pytorch model on ImageNet's validation set."""
+"""Script to test a pytorch model on Cifar100's validation set."""
 
 import argparse
 import logging
