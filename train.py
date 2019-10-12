@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Script to train a model through refined labels on ImageNet's train set."""
+"""Script to train a model through refined labels on Cifar100's train set."""
 
 import argparse
 import logging
